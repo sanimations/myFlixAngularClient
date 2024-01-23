@@ -27,8 +27,13 @@ ngOnInit(): void {
 loginUser(): void {
     this.fetchApiData.userLogin(this.loginData).subscribe({
       next: (result: any) => {
-        localStorage.setItem('user',  JSON.stringify(result.user));
+        console.log("result" + result)
+        console.log("result and user" + result.user)
+        console.log("result and user and username" + result.user.Username)
+        console.log("result and username" + result.Username)
+        localStorage.setItem('user',  JSON.stringify(result.Username));
         localStorage.setItem('token', result.token);
+        
   // Logic for a successful user registration goes here! (To be implemented)
      this.dialogRef.close(); // This will close the modal on success!
      console.log(result)

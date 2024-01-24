@@ -16,7 +16,7 @@ import { Router } from '@angular/router';
 })
 export class UserLoginFormComponent implements OnInit {
   
-  @Input() loginData = { Username: '', Password: ''}
+  @Input() loginData = { username: '', password: ''}
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -33,9 +33,8 @@ loginUser(): void {
       next: (result: any) => {
         console.log("result" + result)
         console.log("result and user" + result.user)
-        console.log("result and user and username" + result.user.Username)
-        console.log("result and username" + result.Username)
-        localStorage.setItem('user',  JSON.stringify(result.Username));
+        console.log("result and user and username" + result.user.username)
+        localStorage.setItem('user',  JSON.stringify(result.username));
         localStorage.setItem('token', result.token);
         
   // Logic for a successful user registration goes here! (To be implemented)

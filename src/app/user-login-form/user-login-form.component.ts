@@ -31,10 +31,7 @@ ngOnInit(): void {
 loginUser(): void {
     this.fetchApiData.userLogin(this.loginData).subscribe({
       next: (result: any) => {
-        console.log("result" + result)
-        console.log("result and user" + result.user)
-        console.log("result and user and username" + result.user.username)
-        localStorage.setItem('user',  JSON.stringify(result.username));
+        localStorage.setItem('user',  result.user.Username);
         localStorage.setItem('token', result.token);
         
   // Logic for a successful user registration goes here! (To be implemented)

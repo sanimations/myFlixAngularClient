@@ -1,0 +1,21 @@
+.main-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Center vertically
+    align-items: center; // Center horizontally
+    height: 100vh; // Make the container full height of the viewport
+}
+
+.buttons-container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.signup-button{
+    margin-right: 15px;
+}
+
+.login-button{
+    margin-left: 15px;
+}

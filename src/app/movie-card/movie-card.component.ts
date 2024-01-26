@@ -23,4 +23,21 @@ getMovies(): void {
       return this.movies;
     });
   }
+
+  toggleFavorite(movie: any) {
+    const u = localStorage.getItem('user');
+    if (u) {
+      if (movie.isFavorite) {
+        this.fetchApiData.deleteFavoriteMovie(u, movie.id).subscribe(() => {
+          movie.isFavorite = false;
+        });
+      } else {
+        this.fetchApiData.addFavoriteMovie(u, movie.id).subscribe(() => {
+          movie.isFavorite = true;
+        });
+      }
+    } else {
+      console.error('Username not found in localStorage');
+    }
+  }
 }

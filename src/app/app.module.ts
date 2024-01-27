@@ -19,11 +19,13 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 import { RouterModule, Routes} from '@angular/router';
+import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
-  // { path: 'profile', component: ProfileComponent},
+  { path: 'profile', component: UserProfilePageComponent},
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
 ];
 
@@ -33,7 +35,9 @@ const appRoutes: Routes = [
     UserRegistrationFormComponent,
     UserLoginFormComponent,
     MovieCardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    UserProfilePageComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

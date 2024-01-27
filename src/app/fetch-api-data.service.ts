@@ -97,12 +97,14 @@ export class FetchApiDataService {
 
   public addFavoriteMovie(username: string, MovieId: string): Observable<any> {
     const token = localStorage.getItem('token');
-    return this.http.post<Response>(apiUrl + 'users/' + username + "/movies/" + MovieId, {
-      headers: new HttpHeaders(
-        {
-          Authorization: 'Bearer ' + token,
-        })
-    }).pipe(
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token
+    });
+    return this.http.post<Response>
+    (apiUrl + 'users/' + username + "/movies/" + MovieId, 
+    {},
+      {headers: headers}
+      ).pipe(
       map(this.extractResponseData),
       catchError(this.handleError)
     );

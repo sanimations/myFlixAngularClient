@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<button
+class="profile-button"
+mat-raised-button
+(click)="getUserProfile()"
+color="primary"
+>Profile</button>
 <div class="movie-posters">
   <mat-card *ngFor="let movie of movies" class="movie-list">
     <mat-card-header>

@@ -40,4 +40,12 @@ export class UserProfilePageComponent implements OnInit{
 
   }
 
+  logout(): void{
+    localStorage.clear(),
+    this.router.navigate(['welcome']);
+  }
+  back(): void{
+  this.router.navigate(['movies']);
+  }
+
 }

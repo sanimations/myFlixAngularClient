@@ -31,6 +31,7 @@ ngOnInit(): void {
 loginUser(): void {
     this.fetchApiData.userLogin(this.loginData).subscribe({
       next: (result: any) => {
+        localStorage.setItem('user', JSON.stringify(result.user));
         localStorage.setItem('email',  result.user.Email);
         localStorage.setItem('birthday',  result.user.Birthday);
         localStorage.setItem('username',  result.user.Username);

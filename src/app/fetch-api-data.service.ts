@@ -125,6 +125,7 @@ export class FetchApiDataService {
 
   public editUser(oldUsername: string, newUserData: any): Observable<any> {
     const token = localStorage.getItem('token');
+    console.log("old = " +oldUsername + " new = " + JSON.stringify(newUserData));
 
     return this.http.put<Response>
       (apiUrl + 'users/' + oldUsername, newUserData,

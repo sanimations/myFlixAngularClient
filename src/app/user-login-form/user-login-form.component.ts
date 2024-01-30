@@ -36,7 +36,6 @@ loginUser(): void {
         localStorage.setItem('birthday',  result.user.Birthday);
         localStorage.setItem('username',  result.user.Username);
         localStorage.setItem('password',  result.user.Password);
-        localStorage.setItem('username',  result.user.Username);
         localStorage.setItem('token', result.token);
         
   // Logic for a successful user registration goes here! (To be implemented)

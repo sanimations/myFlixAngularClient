@@ -8,23 +8,33 @@
         <mat-form-field>
           <input
             matInput
-            [(ngModel)]="userChanges.username"
+            [(ngModel)]="userChanges.Username"
             placeholder="Username"
             type="text"
             name="Username"
             required
           >
           </mat-form-field>
-          <!-- <mat-form-field>
+          <mat-form-field>
+            <input
+              matInput
+              [(ngModel)]="userChanges.Password"
+              placeholder="Password"
+              type="password"
+              name="Password"
+              required
+            >
+            </mat-form-field>
+          <mat-form-field>
           <input
             matInput
-            [(ngModel)]="userChanges.email"
+            [(ngModel)]="userChanges.Email"
             type = "email"
             placeholder="Email"
             name="Email"
             required
           >
-        </mat-form-field> -->
+        </mat-form-field>
       </form>
     </mat-card-content>
     <mat-card-actions>

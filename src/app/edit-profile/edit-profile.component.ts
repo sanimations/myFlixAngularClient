@@ -6,6 +6,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 // This import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-profile',
@@ -14,21 +15,22 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class EditProfileComponent implements OnInit {
 
-  @Input() userChanges = { username: '', password: '', email: '', birthday: ''}
+  @Input() userChanges = { Username: '', Password: '', Email: ''}
 
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<EditProfileComponent>,
-    public snackBar: MatSnackBar
+    public snackBar: MatSnackBar,
+    private router: Router
     ) { }
 
 
     ngOnInit(): void {
-
     }
 
     userEdits(): void {
-      let oldUsername = JSON.stringify(localStorage.getItem('username'));
+      let oldUsername = localStorage.getItem('username');
+      console.log("old in .ts = "+ oldUsername)
       if (!oldUsername) {
         console.error('Username not found in localStorage');
         return; // Exit early if username is not found
@@ -36,7 +38,17 @@ export class EditProfileComponent implements OnInit {
       this.fetchApiData.editUser(oldUsername, this.userChanges).subscribe({
         next: (response) => {
           console.log('User edited successfully:', response);
-          // Handle success scenario (e.g., display success message)
+          console.log('email: ' + this.userChanges.Email)
+          localStorage.setItem('email', this.userChanges.Email);
+          localStorage.setItem('username', this.userChanges.Username);
+          localStorage.setItem('password', this.userChanges.Password);
+          this.snackBar.open('User edited successfully', 'Close', {
+            duration: 3000, 
+          });
+          
+          this.dialogRef.close();
+          this.router.navigate(['movies']);
+
         },
         error: (error) => {
           console.error('Error editing user:', error);

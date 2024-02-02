@@ -17,6 +17,8 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { ImageSliderModule } from './imageSlider/imageSlider.module';
+
 
 import { RouterModule, Routes} from '@angular/router';
 import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
@@ -43,7 +45,7 @@ const appRoutes: Routes = [
     EditProfileComponent,
     GenreCardComponent,
     DirectorCardComponent,
-    DescriptionCardComponent
+    DescriptionCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatSnackBarModule,
     RouterModule.forRoot(appRoutes),
-    MatIconModule
+    MatIconModule,
+    ImageSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

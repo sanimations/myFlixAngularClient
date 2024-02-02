@@ -4,6 +4,9 @@
   justify-content: center; // Center vertically
   align-items: center; // Center horizontally
   height: 100vh; // Make the container full height of the viewport
+  background-image: url('../../assets/welcome-page.jpg');
+  background-size: cover;
+  background-position: center;
 }
 
 .buttons-container {
